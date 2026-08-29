@@ -6,31 +6,26 @@ interface Props {
 const STEPS = [
   {
     num: "01",
-    title: "Create a Room",
-    desc: "Start a new watch party and get a unique room code.",
+    title: "Spin Up a Room",
+    desc: "One click and your room code is ready - no signup, no setup.",
   },
   {
     num: "02",
-    title: "Invite Friends",
-    desc: "Share your room code with your friends and let them join.",
+    title: "Pull People In",
+    desc: "Drop the code in your group chat and watch them roll in.",
   },
   {
     num: "03",
-    title: "Choose a Video",
-    desc: "Add a YouTube video and start watching together.",
+    title: "Drop a Link",
+    desc: "Paste any YouTube video and it loads for everyone at once.",
   },
   {
     num: "04",
-    title: "Watch in Sync",
-    desc: "Play, pause and seek together in real time.",
+    title: "Stay Locked In",
+    desc: "Every pause, skip, and replay lands the same moment for the whole crew.",
   },
 ];
 
-/**
- * The pre-room landing page. Purely presentational — it hands off to
- * App.tsx's existing room-creation/join flow via the two callbacks, it
- * doesn't talk to the socket or duplicate any of that logic itself.
- */
 export function Home({ onCreateRoom, onJoinRoom }: Props) {
   return (
     <div>
@@ -38,13 +33,16 @@ export function Home({ onCreateRoom, onJoinRoom }: Props) {
         <a href="#top" className="nav-brand">
           <span className="nav-logo">▶</span> SyncRoom
         </a>
+
         <div className="nav-links">
           <a href="#top" className="nav-link">
             Home
           </a>
+
           <a href="#how-it-works" className="nav-link">
             How it works
           </a>
+
           <a
             href="https://github.com/ashi8895/SyncRoom"
             target="_blank"
@@ -57,42 +55,53 @@ export function Home({ onCreateRoom, onJoinRoom }: Props) {
       </nav>
 
       <div id="top" className="hero">
-        <span className="eyebrow hero-badge">Watch together in real-time</span>
+        <span className="eyebrow hero-badge">
+          No downloads. No accounts. Just press play.
+        </span>
+
         <h1 className="hero-title">
-          Watch Together.
+          One Screen.
           <br />
-          <span className="accent-text">Anywhere.</span>
+          <span className="accent-text">Every Friend.</span>
         </h1>
+
         <p className="tagline hero-tagline">
-          Create a room and watch YouTube with your friends in perfect sync.
+          Fire up a room, drop a YouTube link, and everyone's watching the exact
+          same frame - together.
         </p>
 
         <div className="hero-actions">
           <button className="btn btn-marquee btn-large" onClick={onCreateRoom}>
-            Create a Room
+            Start a Room
           </button>
+
           <button className="btn btn-large" onClick={onJoinRoom}>
-            Join a Room
+            I Have a Code
           </button>
         </div>
       </div>
 
       <section id="how-it-works" className="how-it-works">
-        <span className="eyebrow how-it-works-badge">How it works</span>
+        <span className="eyebrow how-it-works-badge">The Basics</span>
+
         <h2>
-          Watch together in{" "}
-          <span className="accent-text">four simple steps.</span>
+          From zero to{" "}
+          <span className="accent-text">
+            watching together in under a minute.
+          </span>
         </h2>
+
         <p className="tagline how-it-works-sub">
-          Create a room, invite your friends, and start watching YouTube
-          together.
+          No app to install, no account to make - just a code and a video.
         </p>
 
         <div className="steps-grid">
           {STEPS.map((step) => (
             <div key={step.num} className="step-card">
               <span className="step-num">{step.num}</span>
+
               <h3>{step.title}</h3>
+
               <p>{step.desc}</p>
             </div>
           ))}
@@ -100,11 +109,13 @@ export function Home({ onCreateRoom, onJoinRoom }: Props) {
 
         <div className="host-callout">
           <span className="host-callout-icon">👑</span>
+
           <div>
-            <strong>Host &amp; Moderator Controls</strong>
+            <strong>Who's Driving?</strong>
+
             <p>
-              Hosts and moderators can play, pause, seek and change videos while
-              everyone stays synchronized.
+              The room's Host - and anyone they trust with Moderator - steers
+              the video. Everyone else just kicks back and watches.
             </p>
           </div>
         </div>
